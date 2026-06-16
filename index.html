@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weatherly Pixel</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="stars"></div>
+    <div id="weatherEffects"></div>
+    <div id="particles"></div>
+    <div class="bg-cloud-layer"></div>
+    <div class="floating-cloud cloudFloat1"></div>
+    <div class="floating-cloud cloudFloat2"></div>
+    <div class="floating-cloud cloudFloat3"></div>
+    <div class="floating-cloud cloudFloat4"></div>
+    <div class="floating-cloud cloudFloat5"></div>
+    <div class="floating-cloud cloudFloat6"></div>
+    <div id="sun">
+    <div class="sun-core"></div>
+    <span class="ray ray1"></span>
+    <span class="ray ray2"></span>
+    <span class="ray ray3"></span>
+    <span class="ray ray4"></span>
+    <span class="ray ray5"></span>
+    <span class="ray ray6"></span>
+    <span class="ray ray7"></span>
+    <span class="ray ray8"></span>  
+    <span class="ray ray9"></span>
+    <span class="ray ray10"></span>
+    </div>
+    <div id="lightningLeft"></div>
+    <div id="lightningRight"></div>
+    <img src="images/moon.png" id="moon" alt="Moon">
+    <div class="floating-cloud snowCloud1"></div>
+    <div class="floating-cloud snowCloud2"></div>
+    <div id="loadingBar"></div>
+    <div id="weatherSection">
+    
+    <main class="container">
+        <header class="hero">
+            <h1 class="logo">
+                WEATHERLY
+            </h1>
+            <p class="tagline">
+                Pixel Forecasts Across The Realm
+            </p>
+        </header>
+
+        <section class="search-section">
+            <input
+                type="text"
+                id="cityInput"
+                placeholder="ENTER A CITY..."
+                autocomplete="off"
+            >
+            <button id="searchBtn">
+                SEARCH
+            </button>
+        </section>
+
+        <div class="location-btn-wrapper">
+            <button id="locationBtn">
+                USE MY LOCATION
+            </button>
+        </div>
+
+        <div id="weatherFocus"></div>
+
+        <section class="current-weather">
+
+            <div class="weather-left">
+                <div class="city" id="cityName">
+                    DISPUR
+                </div>
+                <div class="country" id="countryName">
+                    IN
+                </div>
+                <div class="local-time" id="localTime">
+                    13:45
+                </div>
+            </div>
+
+            <div class="weather-center">
+                <div class="temperature" id="temperature">
+                    34°
+                </div>
+                <div class="condition" id="condition">
+                    MODERATE RAIN
+                </div>
+            </div>
+
+            <div class="weather-right">
+                <div id="weatherAdvice"></div>
+            </div>
+
+        </section>
+
+        <section class="stats">
+            <div>
+                HUMIDITY
+                <span id="humidity">--</span>
+            </div>
+            <div>
+                WIND
+                <span id="windSpeed">--</span>
+            </div>
+            <div>
+                AQI
+                <span id="aqi">--</span>
+            </div>
+            <div>
+                FEELS LIKE
+                <span id="feelsLike">--</span>
+            </div>
+        </section>
+
+        <section class="hourly-chart">
+            <h2>TODAY'S TEMPERATURE</h2>
+
+            <div class="chart-frame">
+                <canvas id="tempChart"></canvas>
+            </div>
+        </section>
+
+        <section class="forecast">
+            <h2>5 DAY FORECAST</h2>
+            <div id="forecastContainer">
+            </div>
+        </section>
+    </main>
+    <script src="script.js"></script>
+    </div>
+ 
+    <div class="credit-text">
+    Pixelated by Aryan D ©2026
+</div>
+</body>
+</html>
