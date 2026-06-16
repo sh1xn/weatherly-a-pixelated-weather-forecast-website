@@ -129,9 +129,9 @@ async function getWeather(city){
         getForecast(city);
 
         setWeatherTheme(
-            data.weather[0].main
+            data.weather[0].main,
+            data.weather[0].icon
         );
-
         if(userSearched){
 
             setTimeout(() => {
@@ -152,15 +152,7 @@ async function getWeather(city){
             }, 300);
         }
 
-        const localHour = new Date(
-            (data.dt + data.timezone) * 1000
-        ).getUTCHours();
-
-        if(localHour >= 18 || localHour < 6){
-            document.body.classList.add("night");
-        }else{
-            document.body.classList.remove("night");
-        }
+        
 
 stopLoading();
     }
@@ -370,7 +362,7 @@ lon
 }
 
 
-function setWeatherTheme(weather){
+function setWeatherTheme(weather, iconCode){
 
     const weatherAdvice =
     document.getElementById(
@@ -425,7 +417,8 @@ function setWeatherTheme(weather){
         "cloudy",
         "rain",
         "thunderstorm",
-        "snow"
+        "snow",
+        "night"
     );
 
     clearParticles();
@@ -433,9 +426,11 @@ function setWeatherTheme(weather){
         switch(weather){
 
         case "Clear":
-            document.body.classList.add(
-                "sunny"
-            );
+            if(iconCode.includes("n")){
+                document.body.classList.add("night");
+            }else{
+                document.body.classList.add("sunny");
+            }
             break;
 
         case "Clouds":
