@@ -1162,19 +1162,6 @@ body.night #moon{
     }
 }
 
-.credit-text{
-    position:absolute;
-    bottom:-1570px;
-    left:50%;
-    transform:translateX(-50%);
-    z-index:999;
-    font-family:'VT323', monospace;
-    font-size:1.55rem;
-    color:#ff7de9;
-}
-
-
-
 .hourly-chart{
     margin-bottom:80px;
 }
@@ -1346,15 +1333,10 @@ body.night #moon{
     }
 
     #weatherAdvice{
-
         left:0;
-
         max-width:90%;
-
         margin:auto;
-
         font-size:1.6rem;
-
         padding:18px;
     }
 
@@ -1365,9 +1347,6 @@ body.night #moon{
     #weatherAdvice::after{
         display:none;
     }
-
-
-
     .stats{
 
         grid-template-columns:
