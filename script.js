@@ -53,6 +53,15 @@ async function getWeather(city){
         const data =
         await response.json();
 
+        console.log(data);
+
+        console.log(
+            "Weather:",
+            data.weather[0].main,
+            "Icon:",
+            data.weather[0].icon
+        );
+
         if(data.cod != 200){
             throw new Error();
         }
@@ -361,8 +370,11 @@ lon
     }
 }
 
+function setWeatherTheme(weather, localHour){
 
-function setWeatherTheme(weather, iconCode){
+    const isNight =
+    localHour >= 18 ||
+    localHour < 6;
 
     const weatherAdvice =
     document.getElementById(
@@ -426,7 +438,7 @@ function setWeatherTheme(weather, iconCode){
         switch(weather){
 
         case "Clear":
-            if(iconCode.includes("n")){
+            if(localHour.includes("n")){
                 document.body.classList.add("night");
             }else{
                 document.body.classList.add("sunny");
@@ -434,33 +446,47 @@ function setWeatherTheme(weather, iconCode){
             break;
 
         case "Clouds":
-            document.body.classList.add("cloudy");
-            break;
+
+        if(localHour.includes("n")){
+            document.body.classList.add("night");
+        }
+
+        document.body.classList.add("cloudy");
+
+        break;
 
         case "Rain":
         case "Drizzle":
-
+            if(localHour.includes("n")){
+                document.body.classList.add("night");
+            }
             document.body.classList.add("rain");
-
             createRain();
-
-            break;
+        break;
 
         case "Thunderstorm":
+
+            if(localHour.includes("n")){
+                document.body.classList.add("night");
+            }
 
             document.body.classList.add("thunderstorm");
 
             createRain();
 
-            break;
+        break;
 
         case "Snow":
 
-            document.body.classList.add("snow");
+        if(localHour.includes("n")){
+            document.body.classList.add("night");
+        }
 
-            createSnow();
+        document.body.classList.add("snow");
 
-            break;
+        createSnow();
+
+        break;
 
         default:
 
